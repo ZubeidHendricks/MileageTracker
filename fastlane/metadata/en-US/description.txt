@@ -1,0 +1,21 @@
+Every untracked mile is money lost. Mileage Tracker logs your drives by GPS and turns them into tax deductions — automatically.
+
+TRACK BY GPS
+• Start a trip and miles accumulate live, on-device
+• Tag each trip Business or Personal
+• Accurate distance from your phone's GPS
+
+BUILT FOR TAX TIME
+• IRS standard-rate deduction calculated per trip
+• Running totals for miles and deductions
+• CSV export for your accountant (Pro)
+
+Perfect for gig drivers, real-estate agents, contractors, and anyone who drives for work.
+SUBSCRIPTIONS
+Pro is an auto-renewing subscription (yearly or weekly). Payment is charged to your Apple ID at confirmation; it renews unless cancelled at least 24 hours before the period ends. Manage or cancel anytime in your Apple ID settings.
+
+PRIVACY FIRST
+Everything runs on your device — nothing is uploaded.
+
+Terms: https://zubeidhendricks.github.io/MileageTracker/terms.html
+Privacy: https://zubeidhendricks.github.io/MileageTracker/privacy.html
