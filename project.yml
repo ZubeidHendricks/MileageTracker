@@ -17,15 +17,15 @@ targets:
     platform: iOS
     sources:
       - Sources
+      - Resources
     dependencies:
       - package: AppFactoryKit
         product: AppFactoryKit
-      - package: AppFactoryKit
-        product: AppFactoryKitRevenueCat
     info:
       path: Sources/Info.plist
       properties:
-        CFBundleDisplayName: "MileageTracker"
+        CFBundleDisplayName: "Mileage Tracker"
+        ITSAppUsesNonExemptEncryption: false
         UILaunchScreen: {}
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         NSLocationWhenInUseUsageDescription: "MileageTracker uses your location to measure trip distance for mileage logs."
@@ -39,6 +39,7 @@ targets:
         SWIFT_VERSION: "5.0"
         GENERATE_INFOPLIST_FILE: NO
         CODE_SIGN_STYLE: Automatic
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
 
   MileageTrackerTests:
     type: bundle.unit-test
