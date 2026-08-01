@@ -15,6 +15,7 @@ struct ContentView: View {
             ScrollView {
                 VStack(spacing: 18) {
                     liveCard
+                    recoveredCard
                     totals
                     list
                 }
@@ -44,6 +45,23 @@ struct ContentView: View {
             if !tracker.authorized { Text("Allow location access to track trips.").font(.caption).foregroundStyle(.secondary) }
         }
         .padding(20).background(RoundedRectangle(cornerRadius: 18).fill(.blue.opacity(0.10)))
+    }
+
+    // Competence feedback per ../PLAYBOOK.md: real money recovered this year is
+    // the hero stat, with a best-month personal record. No badges or points.
+    private var recoveredCard: some View {
+        VStack(spacing: 4) {
+            Text(store.thisYearDeduction, format: .currency(code: "USD"))
+                .font(.system(size: 36, weight: .bold, design: .rounded))
+                .foregroundStyle(.green)
+            Text("recovered this year").font(.caption).foregroundStyle(.secondary)
+            if store.bestMonthDeduction > 0 {
+                Text("Best month: \(store.bestMonthDeduction.formatted(.currency(code: "USD")))")
+                    .font(.caption2).foregroundStyle(.secondary)
+            }
+        }
+        .frame(maxWidth: .infinity).padding(.vertical, 16)
+        .background(RoundedRectangle(cornerRadius: 18).fill(.green.opacity(0.12)))
     }
 
     private var totals: some View {

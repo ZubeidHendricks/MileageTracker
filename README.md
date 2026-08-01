@@ -30,6 +30,13 @@ purchases). To go live:
 
 Bundle id: `com.zubeid.mileagetracker`
 
+## Engagement (see ../PLAYBOOK.md)
+
+Mechanic: **competence feedback** only (max-2 rule). The hero stat is real money
+recovered — this year's IRS deduction from the trip log — plus a best-month
+personal record. Evidence of real trips logged, never app opens. No points,
+badges, or leaderboards.
+
 ## Ship to TestFlight
 
 This app ships with a Fastlane lane + GitHub Actions workflow. One-time account

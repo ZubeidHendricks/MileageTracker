@@ -72,6 +72,23 @@ final class TripStore: ObservableObject {
     var totalMiles: Double { trips.reduce(0) { $0 + $1.miles } }
     var totalDeduction: Double { trips.reduce(0) { $0 + $1.deduction } }
     var sorted: [Trip] { trips.sorted { $0.date > $1.date } }
+
+    // Competence feedback per ../PLAYBOOK.md: money recovered is the score —
+    // evidence of real trips logged, never app opens. Static so tests can drive
+    // the logic with fixed trip arrays.
+    static func deduction(in trips: [Trip], year: Int, calendar: Calendar = .current) -> Double {
+        trips.filter { calendar.component(.year, from: $0.date) == year }.reduce(0) { $0 + $1.deduction }
+    }
+    /// Best calendar month's deduction ever — a personal record.
+    static func bestMonthDeduction(in trips: [Trip], calendar: Calendar = .current) -> Double {
+        Dictionary(grouping: trips) { t -> String in
+            let c = calendar.dateComponents([.year, .month], from: t.date)
+            return "\(c.year ?? 0)-\(c.month ?? 0)"
+        }
+        .values.map { $0.reduce(0) { $0 + $1.deduction } }.max() ?? 0
+    }
+    var thisYearDeduction: Double { Self.deduction(in: trips, year: Calendar.current.component(.year, from: Date())) }
+    var bestMonthDeduction: Double { Self.bestMonthDeduction(in: trips) }
     func reachedFreeLimit(isSubscribed: Bool) -> Bool { !isSubscribed && trips.count >= Self.freeLimit }
 
     func add(_ t: Trip) { trips.append(t); save() }
